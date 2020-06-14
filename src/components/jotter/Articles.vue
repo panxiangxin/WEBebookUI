@@ -1,7 +1,7 @@
 <template>
   <div style="margin-top: 10px">
     <div>
-      <el-button class="btn-publish" @click="toPublish()" type="primary" plain>添加讨论</el-button>
+      <el-button v-show="userName != null && userName != ''" class="btn-publish" @click="toPublish()" type="primary" plain>添加讨论</el-button>
     </div>
     <el-row :gutter="20">
     <el-col :span="16">
@@ -73,6 +73,7 @@
 
 <script>
  import SearchBar from '../library/SearchBar'
+ import { mapGetters } from 'vuex'
   export default {
     components: {SearchBar},
     name: 'posts',
@@ -90,6 +91,20 @@
         activeName: 'second'
       }
     },
+    computed: {
+    ...mapGetters([
+      'userName',
+      'avatarUrl',
+      'mail',
+      'sex',
+      'bio',
+      'password',
+      'qq',
+      'stamps',
+      'age',
+      'id'
+    ])
+  },
     mounted () {
       this.getParams()
       this.loadHotTags()

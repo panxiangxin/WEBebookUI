@@ -3,7 +3,7 @@
     <div v-if="show == 1">
     <el-row style="height: 840px;">
       <search-bar @onSearch="searchResult" :tips="tips" ref="searchBar"></search-bar>
-      <view-switch class="switch"></view-switch>
+      <!-- <view-switch class="switch"></view-switch> -->
       <el-tooltip effect="dark" placement="right"
                   v-for="item in books.slice((currentPage-1)*pagesize,currentPage*pagesize)"
                   :key="item.id">
